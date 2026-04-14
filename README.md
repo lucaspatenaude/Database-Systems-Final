@@ -6,6 +6,8 @@
 
 1. Download the `.csv` and `.sql` files from `Modified Data (WORK HERE)`
 2. Import into MySQLWorkbench
+3. ... something I need to figure out later
+4. ...
 
 > [!WARNING]
 > Don't use the `/Starting Data (DO NOT TOUCH)` folder. It's best for us to keep a preserved copy initial database as reference point for when we do documentation later. Be sure you're working with `/Modified Data (WORK HERE)`, and creating branches when doing changes in order to not lose changes.
