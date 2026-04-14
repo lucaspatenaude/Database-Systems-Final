@@ -5,6 +5,9 @@
 
 📝 **Go to Google Doc** https://docs.google.com/document/d/1PuPcGoOKlvk9pZ30YGDimn-AYu-82sCV4qTlrNP4Wmg/edit?usp=sharing
 
+> [!WARNING]
+> Don't use the `/Starting Data (DO NOT TOUCH)` folder. It's best for us to keep a preserved copy initial database as reference point for when we do documentation later. Be sure you're working with `/Modified Data (WORK HERE)`, and creating branches when doing changes in order to not lose changes.
+
 # 🐾 First Steps
 
 1. Download the `.csv` and `.sql` files from `Modified Data (WORK HERE)`
@@ -16,9 +19,6 @@
 ![Right-click "Tables"](img/setup-1.png)
 
 6. In the opened window, click the "browse" button and point it at the path of the `.csv` file
-
-> [!WARNING]
-> Don't use the `/Starting Data (DO NOT TOUCH)` folder. It's best for us to keep a preserved copy initial database as reference point for when we do documentation later. Be sure you're working with `/Modified Data (WORK HERE)`, and creating branches when doing changes in order to not lose changes.
 
 # 1. 🏃 Overview of Starting Database
 
