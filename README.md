@@ -1,5 +1,5 @@
-📌 **Go to Issue Board:**
-https://github.com/users/lucaspatenaude/projects/6
+📌 **Go to Issue Board:** https://github.com/users/lucaspatenaude/projects/6
+📝 **Go to Google Doc** https://docs.google.com/document/d/1PuPcGoOKlvk9pZ30YGDimn-AYu-82sCV4qTlrNP4Wmg/edit?usp=sharing
 
 # 1. 🏃 Overview of Starting Database
 
