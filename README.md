@@ -1,3 +1,6 @@
+> [!TIP]
+> The [issue board](https://github.com/users/lucaspatenaude/projects/6) has the most comprehensive overview of the tasks we need to do. When looking for issues or documentation please use and refer to that rather than this README and the Google Doc. It's the quickest way to track and document tasks so we'll work from there and fill in the README and Google Doc as we go and make changes
+
 📌 **Go to Issue Board:** https://github.com/users/lucaspatenaude/projects/6
 
 📝 **Go to Google Doc** https://docs.google.com/document/d/1PuPcGoOKlvk9pZ30YGDimn-AYu-82sCV4qTlrNP4Wmg/edit?usp=sharing
