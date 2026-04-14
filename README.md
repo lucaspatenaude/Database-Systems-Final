@@ -50,6 +50,6 @@
 
 # 3. 🏁 Modified Database
 
-## 🏁 Modified DB Diagram
+## 📊 Modified DB Diagram
 
 [diagram here]
