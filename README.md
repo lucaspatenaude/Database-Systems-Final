@@ -2,6 +2,11 @@
 
 📝 **Go to Google Doc** https://docs.google.com/document/d/1PuPcGoOKlvk9pZ30YGDimn-AYu-82sCV4qTlrNP4Wmg/edit?usp=sharing
 
+# 🐾 First Steps
+
+1. Download the `.csv` and `.sql` files from `/Starting Data (DO NOT TOUCH)`
+2. Import into MySQLWorkbench
+
 # 1. 🏃 Overview of Starting Database
 
 ## 📊 Starting DB Diagram
