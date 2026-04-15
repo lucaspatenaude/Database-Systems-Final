@@ -11,7 +11,7 @@
 # 🐾 First Steps
 
 1. Download the `.csv` and `.sql` files from `Modified Data (WORK HERE)`
-2. Import into MySQLWorkbench
+2. Open MySQLWorkbench
 3. Open the CU Database w/ VPN on
 4. Drop all tables to reset database (do each startup)
 5. Right-click on the "Tables" item in the "Schemas" tab on the left hand side of workbench
