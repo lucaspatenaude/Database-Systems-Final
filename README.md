@@ -26,6 +26,10 @@
 
 [diagram here]
 
+## 📊 Modified DB Diagram
+
+![Group ERD Diagram](img/group-erd-diagram.png)
+
 ## ❌ Issues with Database
 
 1. Issue #1
@@ -68,6 +72,3 @@
 
 # 3. 🏁 Modified Database
 
-## 📊 Modified DB Diagram
-
-[diagram here]
