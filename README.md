@@ -16,7 +16,7 @@
 4. Drop all tables to reset database (do each startup)
 5. Right-click on the "Tables" item in the "Schemas" tab on the left hand side of workbench
 
-![Right-click "Tables"](img/setup-1.png)
+<img src="img/setup-1.png" width="300" alt="Right-click 'Tables'">
 
 6. In the opened window, click the "browse" button and point it at the path of the `.csv` file
 
