@@ -265,3 +265,83 @@ INSERT INTO Appointments (appointment_id, student_id, tutor_id, subject_id, appo
     (33, 9,  7, 9, '2026-03-26', '10:00', 60, 'Cancelled',  'Tutor unavailable',                  'ECCR 1B40',  FALSE, 33),
     (34, 8,  2, 3, '2026-04-24', '17:00', 60, 'Scheduled',  NULL,                                 'Math 250',   FALSE, 34),
     (35, 11, 6, 5, '2026-03-27', '08:00', 60, 'Completed',  'Exam review',                        'KOBL S240',  FALSE, 35);
+
+
+-- -----------------------------------------------------------------------------
+-- Queries
+-- -----------------------------------------------------------------------------
+
+-- 1 Get future appointments
+SELECT st.student_name, t.tutor_name, su.subject_name, a.appointment_date, a.appointment_time 
+FROM Appointments a
+INNER JOIN Students st
+ON st.student_id = a.student_id
+INNER JOIN Tutors t
+ON t.tutor_id = a.tutor_id
+INNER JOIN Subjects su
+ON su.subject_id = a.subject_id
+WHERE a.appointment_status = 'Scheduled';
+
+-- 2  Get unpaid completed appointments (there are none)
+SELECT * 
+FROM Appointments a
+JOIN Payments p
+ON p.payment_id = a.payment_id
+WHERE a.appointment_status = 'Completed' AND p.payment_status = 'Unpaid';
+
+-- 3 Number of appointments per tutor
+SELECT t.tutor_id, t.tutor_name, COUNT(*)
+FROM Appointments a
+JOIN Tutors t
+ON t.tutor_id = a.tutor_id
+GROUP BY a.tutor_id;
+
+-- 4 Number of appointments per subject
+SELECT s.subject_id, s.subject_name, COUNT(*)
+FROM Appointments a
+JOIN Subjects s
+ON s.subject_id = a.subject_id
+GROUP BY a.subject_id;
+
+-- 5 Students who have never had an appointment
+SELECT s.student_name
+FROM Students s
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM Appointments a
+  WHERE a.student_id = s.student_id
+);
+
+-- 6 Show tutors that can teach more than 1 subject
+SELECT t.tutor_name 
+FROM Tutors t
+JOIN TutorSubjects ts
+ON ts.tutor_id = t.tutor_id
+GROUP BY t.tutor_id
+HAVING COUNT(ts.subject_id) > 1;
+
+-- 7 Show canceled or No show appointments
+SELECT *
+FROM Appointments a
+WHERE a.appointment_status = 'No-Show' or a.appointment_status = 'Cancelled';
+
+-- 8 Show total revenue collected by tutor
+SELECT t.tutor_name, SUM(p.payment_amount) as total_revenue_collected
+FROM Appointments a
+JOIN Tutors t
+ON t.tutor_id = a.tutor_id
+JOIN Payments p
+ON p.payment_id = a.payment_id
+GROUP BY t.tutor_id
+ORDER BY SUM(p.payment_amount) DESC;
+
+-- 9 Show total revenue collected by subject
+
+SELECT s.subject_name, SUM(p.payment_amount) as total_revenue_collected
+FROM Appointments a
+JOIN Subjects s
+ON s.subject_id = a.subject_id
+JOIN Payments p
+ON p.payment_id = a.payment_id
+GROUP BY s.subject_id
+ORDER BY SUM(p.payment_amount) DESC;
