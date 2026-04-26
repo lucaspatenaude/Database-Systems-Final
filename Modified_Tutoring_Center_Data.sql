@@ -107,7 +107,8 @@ INSERT INTO Students (student_id, student_name, student_email, student_phone, st
     (9,  'Chloe Nguyen',  'chloe.nguyen@colorado.edu',  '303-555-0139', 'Data Science',           'Freshman'),
     (10, 'Daniel Wu',     'daniel.wu@colorado.edu',     '303-555-0188', 'Economics',              'Senior'),
     (11, 'Hannah Reed',   'hannah.reed@colorado.edu',   '720-555-0191', 'Neuroscience',           'Freshman'),
-    (12, 'Marcus Hill',   'marcus.hill@colorado.edu',   '303-555-0161', 'Computer Engineering',   'Junior');
+    (12, 'Marcus Hill',   'marcus.hill@colorado.edu',   '303-555-0161', 'Computer Engineering',   'Junior'),
+    (13, 'Lily Thompson', 'lily.thompson@colorado.edu', '720-555-0200', 'Psychology', 'Freshman');
 
 -- -----------------------------------------------------------------------------
 -- Tutors
@@ -224,7 +225,8 @@ INSERT INTO Payments (payment_id, payment_status, payment_amount, payment_method
     (32, 'Paid',     35.00, 'Card'),
     (33, 'Waived',    0.00, 'N/A'),
     (34, 'Pending',  35.00, NULL),
-    (35, 'Paid',     35.00, 'Cash');
+    (35, 'Paid',     35.00, 'Cash'),
+    (36, 'Unpaid', 35.00, NULL);
 
 -- -----------------------------------------------------------------------------
 -- Appointments
@@ -264,7 +266,8 @@ INSERT INTO Appointments (appointment_id, student_id, tutor_id, subject_id, appo
     (32, 5,  1, 1, '2026-03-21', '09:00', 60, 'Completed',  'Functions and arrays',               'ECCR 1B30',  FALSE, 32),
     (33, 9,  7, 9, '2026-03-26', '10:00', 60, 'Cancelled',  'Tutor unavailable',                  'ECCR 1B40',  FALSE, 33),
     (34, 8,  2, 3, '2026-04-24', '17:00', 60, 'Scheduled',  NULL,                                 'Math 250',   FALSE, 34),
-    (35, 11, 6, 5, '2026-03-27', '08:00', 60, 'Completed',  'Exam review',                        'KOBL S240',  FALSE, 35);
+    (35, 11, 6, 5, '2026-03-27', '08:00', 60, 'Completed',  'Exam review',                        'KOBL S240',  FALSE, 35),
+    (36, 6, 3, 5, '2026-04-01', '10:00', 60, 'Completed', 'Regression review', 'KOBL S240', FALSE, 36);
 
 -- -----------------------------------------------------------------------------
 -- View and Index
@@ -311,11 +314,11 @@ START TRANSACTION;
 
 -- First create the Payment record
 INSERT INTO Payments (payment_id, payment_status, payment_amount, payment_method)
-VALUES (36, 'Pending', 35.00, NULL);
+VALUES (37, 'Pending', 35.00, NULL);
 
 -- Then create the appointment record (if one fails, both rollback)
 INSERT INTO Appointments (appointment_id, student_id, tutor_id, subject_id, appointment_date, appointment_time, session_length_mins, appointment_status, session_notes, room, follow_up_requested, payment_id)
-VALUES (36, 1, 1, 1, '2026-04-28', '15:00', 60, 'Scheduled', NULL, 'ECCR 1B30', FALSE, 36);
+VALUES (37, 1, 1, 1, '2026-04-28', '15:00', 60, 'Scheduled', NULL, 'ECCR 1B30', FALSE, 37);
 
 COMMIT;
 
@@ -335,7 +338,7 @@ INNER JOIN Subjects su
 ON su.subject_id = a.subject_id
 WHERE a.appointment_status = 'Scheduled';
 
--- 2. Get unpaid completed appointments (there are none)
+-- 2. Get unpaid completed appointments
 SELECT * 
 FROM Appointments a
 JOIN Payments p
